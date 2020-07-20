@@ -1,0 +1,5 @@
+
+  tester:
+    image: "IMAGE_REGISTRY/tester:latest"
+    command: ["sleep", "65000"]
+

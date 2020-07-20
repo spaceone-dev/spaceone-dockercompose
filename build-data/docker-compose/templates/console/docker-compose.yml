@@ -1,0 +1,11 @@
+
+  console:
+    image: "IMAGE_REGISTRY/console:latest"
+    links:
+        - redis:redis
+    volumes:
+      - ./conf/production.json.console:/var/www/config/production.json
+    depends_on:
+      - redis
+    ports:
+      - "8280:80"

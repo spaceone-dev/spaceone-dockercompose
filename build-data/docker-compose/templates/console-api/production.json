@@ -1,0 +1,50 @@
+    {
+      "cors": [
+        "chrome-extension://*",
+	"*",
+	"http://*"
+      ],
+      "endpoints": {
+          "identity": {
+            "v1": "identity:50051"
+          },
+          "repository": {
+            "v1": "repository:50051"
+          },
+          "secret": {
+            "v1": "secret:50051"
+          },
+          "inventory": {
+            "v1": "inventory:50051"
+          },
+          "plugin": {
+            "v1": "plugin:50051"
+          },
+          "monitoring": {
+            "v1": "monitoring:50051"
+          },
+          "statistics": {
+            "v1": "statistics:50051"
+          },
+          "config": {
+            "v1": "config:50051"
+          }
+        },
+      "redis": {
+        "host": "redis",
+        "port": 6379,
+        "db": 15
+      },
+      "logger": {
+        "handlers": [{
+          "type": "console",
+          "level": "debug"
+        },{
+          "type": "file",
+          "level": "debug",
+          "format": "json",
+          "path": "/logs/wconsole-server.log"
+        }]
+      }
+    }
+

@@ -1,0 +1,11 @@
+
+  console-api:
+    image: "IMAGE_REGISTRY/console-api:latest"
+    links:
+        - redis:redis
+    volumes:
+      - ./conf/production.json.console-api:/opt/spaceone/wconsole-server/config/production.json
+    depends_on:
+      - redis
+    ports:
+      - "3000:3000"

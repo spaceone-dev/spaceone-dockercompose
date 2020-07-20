@@ -1,0 +1,12 @@
+
+  identity:
+    image: "IMAGE_REGISTRY/identity:latest"
+    links:
+        - mongodb:mongodb
+        - redis:redis
+    command: ["grpc", "identity", "-c", "/opt/identity.yml"]
+    volumes:
+      - ./conf/identity.yml:/opt/identity.yml
+    depends_on:
+      - redis
+

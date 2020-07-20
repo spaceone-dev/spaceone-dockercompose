@@ -1,0 +1,13 @@
+
+  plugin:
+    image: "IMAGE_REGISTRY/plugin:latest"
+    links:
+        - mongodb:mongodb
+        - redis:redis
+    command: ["grpc", "plugin", "-c", "/opt/plugin.yml"]
+    volumes:
+      - ./conf/plugin.yml:/opt/plugin.yml
+    depends_on:
+      - redis
+
+

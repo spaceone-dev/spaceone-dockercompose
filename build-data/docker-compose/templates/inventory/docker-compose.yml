@@ -1,0 +1,12 @@
+
+  inventory:
+    image: "IMAGE_REGISTRY/inventory:latest"
+    links:
+        - mongodb:mongodb
+        - redis:redis
+    command: ["grpc", "inventory", "-c", "/opt/inventory.yml"]
+    volumes:
+      - ./conf/inventory.yml:/opt/inventory.yml
+    depends_on:
+      - redis
+

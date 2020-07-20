@@ -1,0 +1,17 @@
+GLOBAL:
+    DATABASES:
+        default:
+            db: repository
+            host: mongodb
+            username: repository
+            password: repository_password
+    CONNECTORS:
+            SecretConnector:
+                endpoint:
+                    v1: grpc://secret:50051
+
+    ROOT_TOKEN_INFO:
+      protocol: consul
+      config:
+        host: consul
+      uri: debug/supervisor/TOKEN

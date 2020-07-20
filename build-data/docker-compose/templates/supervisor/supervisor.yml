@@ -1,0 +1,44 @@
+GLOBAL:
+  SERVICE: supervisor
+  PORT: 50051
+  NAME: root
+  HOSTNAME: HOSTNAME_ADDRESS
+  BACKEND: DockerConnector
+  PLUGIN:
+    backend: DockerConnector
+    start_port: 50060
+    end_port: 50090
+  TOKEN_INFO: 
+    protocol: consul
+    config:
+      host: consul
+    uri: debug/supervisor/TOKEN
+  CONNECTORS:
+    PluginConnector:
+      endpoint:
+        v1: grpc://plugin:50051
+  HANDLERS:
+    authentication:
+      - backend: spaceone.core.handler.authentication_handler.AuthenticationGRPCHandler
+        uri: grpc://identity:50051/v1/Domain/get_public_key
+  QUEUES:
+    default_q:
+      backend: spaceone.core.queue.redis_queue.RedisQueue
+      host: redis
+      port: 6379
+      channel: supervisor_queue
+  SCHEDULERS:
+    publish:
+      backend: spaceone.supervisor.scheduler.publish_scheduler.PublishScheduler
+      queue: default_q
+      interval: 30
+    sync:
+      backend: spaceone.supervisor.scheduler.sync_scheduler.SyncScheduler
+      queue: default_q
+      interval: 120
+
+  WORKERS:
+    worker:
+      backend: spaceone.core.scheduler.worker.BaseWorker
+      queue: default_q
+

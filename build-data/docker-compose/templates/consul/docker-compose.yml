@@ -1,0 +1,7 @@
+  consul:
+    image: "bitnami/consul:latest"
+    volumes:
+      - ./consul:/bitnami
+    ports:
+      - "8500:8500"
+

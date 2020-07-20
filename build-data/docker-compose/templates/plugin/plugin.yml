@@ -1,0 +1,7 @@
+GLOBAL:
+    DATABASES:
+        default:
+            db: plugin
+            host: mongodb
+            username: plugin
+            password: plugin_password

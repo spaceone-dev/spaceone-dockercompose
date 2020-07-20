@@ -1,0 +1,19 @@
+GLOBAL:
+    DATABASES:
+        default:
+            db: identity
+            host: mongodb
+            username: identity
+            password: identity_password
+
+    CACHES:
+        default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis 
+            port: 6379
+            db: 0
+
+    CONNECTORS:
+        PluginServiceConnector:
+            endpoint:
+                v1: grpc://plugin:50051

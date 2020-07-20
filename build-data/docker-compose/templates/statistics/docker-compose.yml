@@ -1,0 +1,12 @@
+
+  statistics:
+    image: "IMAGE_REGISTRY/statistics:latest"
+    links:
+        - mongodb:mongodb
+        - redis:redis
+    command: ["grpc", "statistics", "-c", "/opt/statistics.yml"]
+    volumes:
+      - ./conf/statistics.yml:/opt/statistics.yml
+    depends_on:
+      - redis
+

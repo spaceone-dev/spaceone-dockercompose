@@ -1,0 +1,14 @@
+{
+    "options": {
+        "update_mode": true,
+        "terminate": false,
+        "update_supervisor_token": false
+    },
+    "consul": {
+        "host": "consul",
+        "env": "debug"
+    },
+    "domain": {
+        "domain": {"name": "root"}
+    }
+}

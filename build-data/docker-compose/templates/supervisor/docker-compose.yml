@@ -1,0 +1,10 @@
+
+  supervisor:
+    image: "IMAGE_REGISTRY/supervisor:latest"
+    command: ["scheduler", "supervisor", "-c", "/opt/supervisor.yml"]
+    volumes:
+      - ./conf/supervisor.yml:/opt/supervisor.yml
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+
+    depends_on:
+      - redis
