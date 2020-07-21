@@ -91,7 +91,7 @@ $ spaceone test
 
 ### 2. Update DNS for web browser access.
 
-To access specific domain, the URL is http://root
+To access specific domain, the URL is http://root:8280
 
 edit your hosts file for access.
 
@@ -100,8 +100,10 @@ In Windows PC, edit c:\windows\system32\drivers\etc\hosts
 
 ```
 #
+# Elastic IP address, if you installed at EC2 instance.
+# <EC2 EIP> root
+# If you use MacOS, use 127.0.0.1
 127.0.0.1 root
-127.0.0.1 dev
 ```
 
 ## Development guides
