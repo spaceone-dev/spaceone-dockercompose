@@ -25,8 +25,6 @@ SCHEMA = {"properties": {
                 },
                 "type": "object",
                 "required": [
-                    "sa_name",
-                    "project_id"
                 ]
         }
 
@@ -34,8 +32,8 @@ SCHEMA = {"properties": {
 PLUGIN_PARAMS = {
     'aws-ec2': {
             'name':'aws-ec2',
-            'service_type':'inventory.collector',
-            'image':'spaceone/aws-ec2',
+            'service_type':'inventory.Collector',
+            'image':'pyengine/aws-ec2',
             'labels': ['Server'],
             'provider': 'aws',
             'capability': {
@@ -52,7 +50,7 @@ PLUGIN_PARAMS = {
     'aws-cloud-services': {
             'name':'aws-cloud-services',
             'service_type':'inventory.collector',
-            'image':'spaceone/aws-cloud-services',
+            'image':'pyengine/aws-cloud-services',
             'labels': ['DynamoDB', 'S3', 'ElastiCache', 'AutoScaling Group', 'DirectConnector', 'RDS', 'DocumentDB',
                        'EKS', 'Redshift', 'EFS', 'ECS', 'Workspace', 'API Gateway', 'Route53',
                        'SQS', 'ECR', 'CloudTrail', 'SNS', 'SecretManager', 'AmazonAthena' 'KMS', 'Kinesis'],
@@ -71,7 +69,7 @@ PLUGIN_PARAMS = {
     'gcp-compute': {
             'name': 'gcp-compute',
             'service_type':'inventory.collector',
-            'image':'spaceone/gcp-compute',
+            'image':'pyengine/gcp-compute',
             'labels': ['Server'],
             'provider': 'google_cloud',
             'capability': {
@@ -86,7 +84,7 @@ PLUGIN_PARAMS = {
         },
     'cloud-watch': {
             'name': 'aws-cloud-watch',
-            'image': 'spaceone/aws-cloudwatch',
+            'image': 'pyengine/aws-cloudwatch',
             'service_type': 'monitoring.DataSource',
             'provider': 'aws',
             'capability': {
@@ -103,7 +101,7 @@ PLUGIN_PARAMS = {
         },
     'aws-health': {
             'name':'aws-health',
-            'image':'spaceone/aws-health',
+            'image':'pyengine/aws-health',
             'service_type':'monitoring.DataSource',
             'provider': 'aws',
             'capability': {
@@ -121,7 +119,7 @@ PLUGIN_PARAMS = {
     'aws-cloud-trail': {
             'name':'aws-cloud-trail',
             'service_type':'monitoring.DataSource',
-            'image':'spaceone/aws-cloudtrail',
+            'image':'pyengine/aws-cloudtrail',
             'provider': 'aws',
             'capability': {
                 'use_resource_secret': True,
@@ -145,7 +143,7 @@ PLUGIN_PARAMS = {
                     {"key": "client_id", "name":"Oauth Client ID", "type":"string", "is_required":True, "example":"OAuth 2.0 Client ID"}
                   ],
             },
-            'image':'spaceone/googleoauth2',
+            'image':'pyengine/googleoauth2',
             'tags' : {
                 "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/google-icon.svg",
                 "description": "Google OAuth2 Authentication",

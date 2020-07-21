@@ -79,8 +79,7 @@ You can see the console page via http://console-client
 To run SpaceONE, 'root' domain must be initialized. This provides supervisor and repository services for other domains.
 
 ```
-$ docker cp scenarios/root_domain debug_identity_1:/root/
-$ docker cp scenarios/register_plugins debug_identity_1:/root/
+$ docker cp scenarios debug_identity_1:/root/
 $ docker exec -ti debug_identity_1 /bin/bash
 # In a debug_identity_1
 $ pip install spaceone-tester
