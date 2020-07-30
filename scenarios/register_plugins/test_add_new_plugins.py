@@ -41,7 +41,7 @@ PLUGIN_PARAMS = {
             },
             'template': {'options': {'schema': SCHEMA}},
             "tags": {
-                "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-ec2.svg",
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-ec2.svg",
                 "description": "AWS EC2 Compute collector",
                 "spaceone:plugin_name": "aws-ec2"
                 }
@@ -60,7 +60,7 @@ PLUGIN_PARAMS = {
             },
             'template': {'options': {'schema': SCHEMA}},
             "tags": {
-                "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudservice.svg",
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudservice.svg",
                 "description": "AWS Cloud Services collector",
                 "spaceone:plugin_name": "aws-cloud-services"
                 }
@@ -77,7 +77,7 @@ PLUGIN_PARAMS = {
             },
             'template': {'options': {'schema': SCHEMA}},
             'tags' : {
-                "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/gcp-compute.svg",
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/gcp-compute.svg",
                 "description": "Google Compute Engine collector",
                 "spaceone:plugin_name": "gcp-compute"
                 }
@@ -95,7 +95,7 @@ PLUGIN_PARAMS = {
             'labels': ['Monitoring', 'AWS', 'CloudWatch'],
             'tags': {
                 'description': 'AWS CloudWatch Monitoring Plugin',
-                'icon': 'https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudwatch.svg',
+                'icon': 'https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudwatch.svg',
                 'spaceone:plugin_name': 'aws-cloud-watch'
             }
         },
@@ -111,7 +111,7 @@ PLUGIN_PARAMS = {
             },
             'labels': ['Monitoring', 'AWS', 'Personal_Health_Dashboard'],
             "tags": {
-                "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-phd.svg",
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-phd.svg",
                 "description": "AWS Personal Health Monitoring Plugin",
                 "spaceone:plugin_name": "aws-health"
                 }
@@ -128,7 +128,7 @@ PLUGIN_PARAMS = {
             },
             'labels': ['Monitoring', 'AWS', 'CloudTrail'],
             "tags": {
-                "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudtrail.svg",
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudtrail.svg",
                 "description": "AWS CloudTrail Monitoring Plugin",
                 "spaceone:plugin_name": "aws-cloud-trail"
                 }
@@ -145,7 +145,7 @@ PLUGIN_PARAMS = {
             },
             'image':'pyengine/googleoauth2',
             'tags' : {
-                "icon": "https://assets-console-cloudone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/google-icon.svg",
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/google-icon.svg",
                 "description": "Google OAuth2 Authentication",
                 "spaceone:plugin_name": "google-oauth2"
                 }
