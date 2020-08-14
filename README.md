@@ -17,7 +17,16 @@ This installation is for developer only.
 
 ### Commands
 
+```bash
+mkdir spaceone
+cd spaceone
+git clone https://github.com/spaceone-dev/spaceone-dockercompose.git
+cd spaceone-dockercompose
+```
+
+Base on your deploy environment,
 You should update environment variables at build-data/environment/debug.mk
+Especially **SUPERVISOR_HOSTNAME** is important. This value is configured at supervisor micro-service.
 
 ```
 ############################
@@ -37,7 +46,7 @@ SUPERVISOR_HOSTNAME=$(shell hostname -i)
 ############################
 # Service List
 ############################
-BACKEND = identity secret repository inventory plugin
+BACKEND = identity secret repository inventory inventory-scheduler inventory-worker plugin statistics monitoring
 FRONTEND = console console-api
 SUPERVISOR = supervisor
 TESTER = tester
