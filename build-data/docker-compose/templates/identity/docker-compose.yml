@@ -4,7 +4,7 @@
     links:
         - mongodb:mongodb
         - redis:redis
-    command: ["grpc", "identity", "-c", "/opt/identity.yml"]
+    command: ["grpc", "spaceone.identity", "-c", "/opt/identity.yml"]
     volumes:
       - ./conf/identity.yml:/opt/identity.yml
     depends_on:

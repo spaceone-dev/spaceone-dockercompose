@@ -1,5 +1,12 @@
 
   tester:
     image: "IMAGE_REGISTRY/tester:latest"
-    command: ["sleep", "65000"]
+    volumes:
+      - ./scenarios/root_domain/:/opt/
+    depends_on:
+      - identity
+      - supervisor
+      - repository
+      - plugin
+      - secret
 

@@ -1,0 +1,12 @@
+
+  monitoring:
+    image: "IMAGE_REGISTRY/monitoring:latest"
+    links:
+        - mongodb:mongodb
+        - redis:redis
+    command: ["grpc", "spaceone.monitoring", "-c", "/opt/monitoring.yml"]
+    volumes:
+      - ./conf/monitoring.yml:/opt/monitoring.yml
+    depends_on:
+      - redis
+

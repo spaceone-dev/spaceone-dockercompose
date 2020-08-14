@@ -2,7 +2,7 @@ GLOBAL:
   SERVICE: supervisor
   PORT: 50051
   NAME: root
-  HOSTNAME: HOSTNAME_ADDRESS
+  HOSTNAME: SUPERVISOR_HOSTNAME
   BACKEND: DockerConnector
   PLUGIN:
     backend: DockerConnector

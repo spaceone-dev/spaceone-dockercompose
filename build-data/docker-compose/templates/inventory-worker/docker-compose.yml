@@ -1,15 +1,15 @@
 
-  inventory:
+  inventory-worker:
     image: "IMAGE_REGISTRY/inventory:latest"
-    #image: "python:latest"
+    #image: "python" 
     links:
         - mongodb:mongodb
         - redis:redis
-    command: ["grpc", "spaceone.inventory", "-c", "/opt/inventory.yml"]
-    #command: ["sleep", "36000"]
+    command: ["scheduler", "spaceone.inventory", "-c", "/opt/inventory.yml"]
+    #command: ["sleep", "360000"] 
     volumes:
       - ./conf/inventory.yml:/opt/inventory.yml
-      #- ../../../:/opt/
+        #- ../../../:/opt/
     depends_on:
       - redis
 

@@ -1,0 +1,51 @@
+{
+    "options": {
+        "update_mode": false,
+        "terminate": true,
+        "update_supervisor_token": false
+    },
+    "consul": {
+        "host": "consul.dev.pyengine.net",
+        "env": "debug"
+    },
+    "domain": {
+        "domain": { },
+        "users": [
+            {"user_id": "stark", "password": "stark", "name": "Tony Stark", "email": "stark@mz.co.kr", "group": "Develop Team 1"}
+        ],
+        "api_key_users": [
+            {"user_id": "stark"}
+        ],
+        "service_accounts": [
+            {"name": "spaceone-aws-dev-account", "provider": "aws", "data": {"account_id": "072548720675"}},
+            {"name": "spaceone-aws-prd-account", "provider": "aws", "data": {"account_id": "717882001546"}},
+            {"name": "spaceone-gcp-dev-account", "provider": "google_cloud", "data": {"project_id": "spaceone-projet-xxx", "sa_name": "my-gcp-sa-name"}}
+        ],
+	"secrets": [
+            {
+                "name": "aws-dev-collector",
+                "data": {
+                    "aws_access_key_id": "abc",
+                    "aws_secret_access_key": "def"
+                },
+                "schema": "aws_access_key",
+	        "secret_type": "CREDENTIALS",
+            "service_account": "spaceone-aws-dev-account"
+            }
+        ],
+        "collectors": [
+            {
+                "name": "AWS-EC2-Collector",
+                "plugin_info": {
+                    "plugin_id": "plugin-885ff2c52a6c",
+                    "version": "1.3",
+                    "provider": "aws",
+                    "options": {}
+                },
+                "priority": 2,
+                "tags": { "icon": "https://assets-console-spaceone-dev.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-ec2.svg" }
+            }       
+        ],
+        "is_collect": false
+    }
+}

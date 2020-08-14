@@ -1,0 +1,40 @@
+GLOBAL:
+    DATABASES:
+        default:
+            db: monitoring
+            host: mongodb
+            username: monitoring
+            password: monitoring_password
+
+    CACHES:
+        default:
+            backend: spaceone.core.cache.redis_cache.RedisCache
+            host: redis 
+            port: 6379
+            db: 0
+
+    CONNECTORS:
+        IdentityConnector:
+            endpoint:
+                v1: grpc://identity:50051
+
+        InventoryConnector:
+            endpoint:
+                v1: grpc://inventory:50051
+
+        PluginConnector:
+            endpoint:
+                v1: grpc://plugin:50051
+
+        SecretConnector:
+            endpoint:
+                v1: grpc://secret:50051
+
+        RepositoryConnector:
+            endpoint:
+                v1: grpc://repository:50051
+
+    HANDLERS:
+        authentication:
+        - backend: spaceone.core.handler.authentication_handler.AuthenticationGRPCHandler
+          uri: grpc://identity:50051/v1/Domain/get_public_key

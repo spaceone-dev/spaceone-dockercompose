@@ -23,6 +23,7 @@ config:
 	mkdir -p $(BR)
 	rm -rf $(BR)/$(ENV)
 	cp -r build-data/$(TARGET) $(BR)/$(ENV)
+	cp -r build-data/scenarios $(BR)/$(ENV)/
 	cp build-data/environments/$(ENV).mk $(BR)/$(ENV)/build.mk 
 	make -C $(BR)/$(ENV) config
 
@@ -67,5 +68,6 @@ help:
 	@echo " backend  ENV=<Environment Name>              - build backend Docker images"
 	@echo " frontend ENV=<Environment Name>              - build frontend Docker images"
 	@echo " debug    ENV=<Environment Name>              - run environment"
+	@echo " tester   ENV=<Environment Name>              - initialize scenario files"
 	@echo " clean    ENV=<Environment Name>              - clean up all information"
 	@echo " all      ENV=<Environment Name>              - run all-in-one (API -> config -> backend -> frontend -> debug)"

@@ -3,6 +3,7 @@
 		"ENDPOINT": "http://localhost:3000"
 	},
 	"GTAG_ID": "DISABLED",
+	"DOMAIN_NAME": "root",
 	"NO_SERVER_MODE": false
 }
 

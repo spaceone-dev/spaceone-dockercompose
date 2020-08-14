@@ -5,5 +5,5 @@
       MONGO_INITDB_ROOT_PASSWORD: password
       MONGO_INITDB_DATABASE: admin
     volumes:
-      - ./scripts/mongo:/docker-entrypoint-initdb.d
+      - ./conf/mongodb:/docker-entrypoint-initdb.d
 

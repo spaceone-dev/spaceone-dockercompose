@@ -1,0 +1,10 @@
+  vault:
+    image: "vault"
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+    depends_on:
+      - redis

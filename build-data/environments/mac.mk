@@ -10,16 +10,10 @@ VERSION=latest
 # MacOS
 SUPERVISOR_HOSTNAME=$(shell ipconfig getifaddr en0)
 
-# - configuration for secret service
-#   role: secret manager (read/write)
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-REGION_NAME=
-
 ############################
 # Service List
 ############################
-BACKEND = identity secret repository inventory plugin
+BACKEND = identity secret repository inventory inventory-scheduler inventory-worker plugin statistics monitoring
 FRONTEND = console console-api
 SUPERVISOR = supervisor
 TESTER = tester
@@ -29,6 +23,7 @@ TESTER = tester
 ############################
 RUN_MONGODB = y
 RUN_REDIS = y
+RUN_VAULT = y
 RUN_CONSUL = y
 RUN_BACKEND = y
 RUN_FRONTEND = y

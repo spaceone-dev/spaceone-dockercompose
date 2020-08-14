@@ -3,7 +3,7 @@
     image: "IMAGE_REGISTRY/repository:latest"
     links:
         - mongodb:mongodb
-    command: ["grpc", "repository", "-c", "/opt/repository.yml"]
+    command: ["grpc", "spaceone.repository", "-c", "/opt/repository.yml"]
     volumes:
       - ./conf/repository.yml:/opt/repository.yml
 

@@ -14,6 +14,7 @@ endif
 
 ifeq (${RUN_VAULT},y)
 	cat $(BR)/$(ENV)/templates/vault/docker-compose.yml >> $(BR)/$(ENV)/docker-compose.yml
+	cp $(BR)/$(ENV)/templates/vault/vault.json $(BR)/$(ENV)/data/vault/config/vault.json
 endif
 
 ifeq (${RUN_CONSUL},y)
@@ -45,6 +46,7 @@ ifeq (${RUN_TESTER},y)
 	@for t in $(TESTER); do \
 		cat $(BR)/$(ENV)/templates/$$t/docker-compose.yml >> $(BR)/$(ENV)/docker-compose.yml ; \
 	done
+
 endif
 
 	@echo "Update Configuration variables ...."
