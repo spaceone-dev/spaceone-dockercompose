@@ -1,6 +1,6 @@
 
   identity:
-    image: "IMAGE_REGISTRY/identity:latest"
+    image: "IMAGE_REGISTRY/identity:VERSION"
     links:
         - mongodb:mongodb
         - redis:redis

@@ -1,9 +1,13 @@
 {
+	"CONSOLE_API": {
+		"ENDPOINT": "http://HOST_ADDR:3000"
+	},
 	"VUE_APP_API": {
-		"ENDPOINT": "http://localhost:3000"
+		"ENDPOINT": "http://HOST_ADDR:3000"
 	},
 	"GTAG_ID": "DISABLED",
 	"DOMAIN_NAME": "root",
+	"DOMAIN_NAME_REF": "config",
 	"NO_SERVER_MODE": false
 }
 

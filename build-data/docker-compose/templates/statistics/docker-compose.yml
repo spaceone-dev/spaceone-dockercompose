@@ -1,6 +1,6 @@
 
   statistics:
-    image: "IMAGE_REGISTRY/statistics:latest"
+    image: "IMAGE_REGISTRY/statistics:VERSION"
     links:
         - mongodb:mongodb
         - redis:redis

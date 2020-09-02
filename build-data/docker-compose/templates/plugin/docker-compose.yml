@@ -1,6 +1,6 @@
 
   plugin:
-    image: "IMAGE_REGISTRY/plugin:latest"
+    image: "IMAGE_REGISTRY/plugin:VERSION"
     links:
         - mongodb:mongodb
         - redis:redis

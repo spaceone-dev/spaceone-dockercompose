@@ -8,7 +8,8 @@ VERSION=latest
 # Update Your environment
 # - supervisor (private ip address of this machine)
 # MacOS
-SUPERVISOR_HOSTNAME=$(shell ipconfig getifaddr en0)
+HOST_ADDR=$(shell ipconfig getifaddr en0)
+HOST_FQDN=localhost
 
 ############################
 # Service List
@@ -29,3 +30,4 @@ RUN_BACKEND = y
 RUN_FRONTEND = y
 RUN_SUPERVISOR = y
 RUN_TESTER = y
+RUN_NGINX = y

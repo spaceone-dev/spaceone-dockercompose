@@ -21,7 +21,7 @@ config:
 	@echo "build dir  : $(BR)"
 	@echo "======================================================================="
 	mkdir -p $(BR)
-	rm -rf $(BR)/$(ENV)
+	sudo rm -rf $(BR)/$(ENV)
 	cp -r build-data/$(TARGET) $(BR)/$(ENV)
 	cp -r build-data/scenarios $(BR)/$(ENV)/
 	cp build-data/environments/$(ENV).mk $(BR)/$(ENV)/build.mk 
@@ -56,7 +56,8 @@ api:
 .PHONY: clean
 clean:
 	make -C $(BR)/$(ENV) clean
-	rm -rf $(BR)/$(ENV)
+	sudo rm -rf $(BR)/$(ENV)
+	docker ps --filter "label=spaceone.supervisor.name=root" | awk '{print $$1}' | xargs docker rm -f 
 
 #all: config backend frontend tester debug
 all: config debug

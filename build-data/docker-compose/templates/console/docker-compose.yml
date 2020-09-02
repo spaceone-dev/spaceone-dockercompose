@@ -1,6 +1,6 @@
 
   console:
-    image: "IMAGE_REGISTRY/console:latest"
+    image: "IMAGE_REGISTRY/console:VERSION"
     links:
         - redis:redis
     volumes:

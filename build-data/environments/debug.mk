@@ -8,7 +8,15 @@ VERSION=latest
 # Update Your environment
 # - supervisor (private ip address of this machine)
 # MacOS
-SUPERVISOR_HOSTNAME=$(shell ipconfig getifaddr en0)
+#HOST_ADDR=$(shell ipconfig getifaddr en0)
+# Linux
+HOST_ADDR=$(shell hostname -i)
+
+# - configuration for secret service
+#   role: secret manager (read/write)
+#AWS_ACCESS_KEY_ID=
+#AWS_SECRET_ACCESS_KEY=
+#REGION_NAME=
 
 ############################
 # Service List

@@ -1,6 +1,6 @@
 
   supervisor:
-    image: "IMAGE_REGISTRY/supervisor:latest"
+    image: "IMAGE_REGISTRY/supervisor:VERSION"
     command: ["scheduler", "spaceone.supervisor", "-c", "/opt/supervisor.yml"]
     volumes:
       - ./conf/supervisor.yml:/opt/supervisor.yml

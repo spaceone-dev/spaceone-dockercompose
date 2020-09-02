@@ -14,11 +14,22 @@ endif
 
 ifeq (${RUN_VAULT},y)
 	cat $(BR)/$(ENV)/templates/vault/docker-compose.yml >> $(BR)/$(ENV)/docker-compose.yml
-	cp $(BR)/$(ENV)/templates/vault/vault.json $(BR)/$(ENV)/data/vault/config/vault.json
+#	cp $(BR)/$(ENV)/templates/vault/vault.json $(BR)/$(ENV)/data/vault/config/vault.json
 endif
 
 ifeq (${RUN_CONSUL},y)
 	cat $(BR)/$(ENV)/templates/consul/docker-compose.yml >> $(BR)/$(ENV)/docker-compose.yml
+	mkdir -p $(BR)/$(ENV)/consul
+endif
+
+ifeq (${RUN_NGINX},y)
+	cat $(BR)/$(ENV)/templates/nginx/docker-compose.yml >> $(BR)/$(ENV)/docker-compose.yml
+	sed -i -e 's/HOST_FQDN/$(HOST_FQDN)/g' $(BR)/$(ENV)/templates/nginx/req.cnf
+	openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout server.key -out server.crt -config $(BR)/$(ENV)/templates/nginx/req.cnf -sha256
+	mkdir -p $(BR)/$(ENV)/data/nginx
+	cp server.key $(BR)/$(ENV)/data/nginx/
+	cp server.crt $(BR)/$(ENV)/data/nginx/
+	cp $(BR)/$(ENV)/templates/nginx/nginx.conf $(BR)/$(ENV)/data/nginx/nginx.conf
 endif
 
 ifeq (${RUN_BACKEND},y)
@@ -54,7 +65,10 @@ endif
 	@echo "ENV: $(ENV)"
 	@echo "-------------"
 	sed -i -e 's/IMAGE_REGISTRY/$(IMAGE_REGISTRY)/g' docker-compose.yml
-	sed -i -e 's/SUPERVISOR_HOSTNAME/$(SUPERVISOR_HOSTNAME)/g' conf/supervisor.yml
+	sed -i -e 's/VERSION/$(VERSION)/g' docker-compose.yml
+	sed -i -e 's/HOST_ADDR/$(HOST_ADDR)/g' conf/supervisor.yml
+	sed -i -e 's/HOST_ADDR/$(HOST_ADDR)/g' conf/production.json.console
+	sed -i -e 's/HOST_FQDN/$(HOST_FQDN)/g' data/nginx/nginx.conf
 	sed -i -e 's/AWS_ACCESS_KEY_ID/$(AWS_ACCESS_KEY_ID)/g' conf/secret.yml
 	sed -i -e 's/AWS_SECRET_ACCESS_KEY/$(AWS_SECRET_ACCESS_KEY)/g' conf/secret.yml
 	sed -i -e 's/REGION_NAME/$(REGION_NAME)/g' conf/secret.yml

@@ -1,7 +1,7 @@
 
   inventory:
-    image: "IMAGE_REGISTRY/inventory:latest"
-    #image: "python:latest"
+    image: "IMAGE_REGISTRY/inventory:VERSION"
+    #image: "python:VERSION"
     links:
         - mongodb:mongodb
         - redis:redis
