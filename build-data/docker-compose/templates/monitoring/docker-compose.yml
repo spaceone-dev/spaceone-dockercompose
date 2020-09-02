@@ -1,6 +1,6 @@
 
   monitoring:
-    image: "IMAGE_REGISTRY/monitoring:latest"
+    image: "IMAGE_REGISTRY/monitoring:VERSION"
     links:
         - mongodb:mongodb
         - redis:redis

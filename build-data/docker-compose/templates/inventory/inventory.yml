@@ -42,22 +42,10 @@ GLOBAL:
             port: 6379
             channel: collector
 
-    SCHEDULERS:
-        hourly_scheduler:
-            backend: spaceone.inventory.scheduler.InventoryHourlyScheduler
-            queue: collector_q
-            interval: 1
-
-    WORKERS:
-      base_worker:
-        backend: spaceone.core.scheduler.worker.BaseWorker
-        queue: collector_q
-
-
     TOKEN_INFO:
         protocol: consul
         config:
             host: consul 
-        uri: root/supervisor/TOKEN
+        uri: debug/supervisor/TOKEN
 
     collect_queue: collector_q

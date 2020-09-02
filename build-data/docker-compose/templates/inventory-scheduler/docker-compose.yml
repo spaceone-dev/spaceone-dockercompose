@@ -1,12 +1,12 @@
 
   inventory-scheduler:
-    image: "IMAGE_REGISTRY/inventory:latest"
+    image: "IMAGE_REGISTRY/inventory:VERSION"
     links:
         - mongodb:mongodb
         - redis:redis
     command: ["scheduler", "spaceone.inventory", "-c", "/opt/inventory.yml"]
     volumes:
-      - ./conf/inventory.yml:/opt/inventory.yml
+      - ./conf/inventory-scheduler.yml:/opt/inventory.yml
         #- ../../../:/opt/
     depends_on:
       - redis

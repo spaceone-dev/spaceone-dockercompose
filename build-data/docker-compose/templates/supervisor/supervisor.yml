@@ -1,22 +1,25 @@
 GLOBAL:
   SERVICE: supervisor
-  PORT: 50051
   NAME: root
-  HOSTNAME: SUPERVISOR_HOSTNAME
+  HOSTNAME: HOST_ADDR
   BACKEND: DockerConnector
-  PLUGIN:
-    backend: DockerConnector
-    start_port: 50060
-    end_port: 50090
   TOKEN_INFO: 
     protocol: consul
     config:
       host: consul
     uri: debug/supervisor/TOKEN
   CONNECTORS:
+    RepositoryConnector:
+      endpoint:
+        v1: grpc://repository:50051
     PluginConnector:
       endpoint:
         v1: grpc://plugin:50051
+    DockerConnector:
+      backend: DockerConnector
+      start_port: 50060
+      end_port: 50090
+
   HANDLERS:
     authentication:
       - backend: spaceone.core.handler.authentication_handler.AuthenticationGRPCHandler

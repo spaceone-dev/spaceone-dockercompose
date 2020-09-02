@@ -12,7 +12,8 @@
         "domain": {"name": "root"},
         "domainOwner": {"owner_id": "admin", "password": "admin"},
         "users": [
-            {"user_id": "supervisor", "password": "supervisor-password"}
+            {"user_id": "supervisor", "password": "supervisor-password"},
+            {"user_id": "stark", "password": "stark-password"}
         ],
         "api_key_users": [
             {"user_id": "supervisor"}

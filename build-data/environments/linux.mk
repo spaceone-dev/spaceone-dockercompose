@@ -8,9 +8,12 @@ VERSION=latest
 # Update Your environment
 # - supervisor (private ip address of this machine)
 # MacOS
-#SUPERVISOR_HOSTNAME=$(shell ipconfig getifaddr en0)
+#HOST_ADDR=$(shell ipconfig getifaddr en0)
 # Linux
-SUPERVISOR_HOSTNAME=$(shell hostname -i)
+#HOST_ADDR=$(shell hostname -i)
+# AWS EC2
+HOST_ADDR=$(shell curl http://169.254.169.254/latest/meta-data/public-ipv4)
+HOST_FQDN=$(shell curl http://169.254.169.254/latest/meta-data/public-hostname)
 
 # - configuration for secret service
 #   role: secret manager (read/write)
@@ -37,3 +40,4 @@ RUN_BACKEND = y
 RUN_FRONTEND = y
 RUN_SUPERVISOR = y
 RUN_TESTER = y
+RUN_NGINX = y

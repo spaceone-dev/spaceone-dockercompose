@@ -1,6 +1,6 @@
   
   repository:
-    image: "IMAGE_REGISTRY/repository:latest"
+    image: "IMAGE_REGISTRY/repository:VERSION"
     links:
         - mongodb:mongodb
     command: ["grpc", "spaceone.repository", "-c", "/opt/repository.yml"]

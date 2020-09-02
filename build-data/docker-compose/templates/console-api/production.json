@@ -2,7 +2,8 @@
       "cors": [
         "chrome-extension://*",
 	"*",
-	"http://*"
+	"http://*",
+	"https://*"
       ],
       "endpoints": {
           "identity": {

@@ -1,6 +1,6 @@
 
   inventory-worker:
-    image: "IMAGE_REGISTRY/inventory:latest"
+    image: "IMAGE_REGISTRY/inventory:VERSION"
     #image: "python" 
     links:
         - mongodb:mongodb
@@ -8,7 +8,7 @@
     command: ["scheduler", "spaceone.inventory", "-c", "/opt/inventory.yml"]
     #command: ["sleep", "360000"] 
     volumes:
-      - ./conf/inventory.yml:/opt/inventory.yml
+      - ./conf/inventory-worker.yml:/opt/inventory.yml
         #- ../../../:/opt/
     depends_on:
       - redis
