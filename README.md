@@ -15,6 +15,9 @@ This installation is for developer only.
 * `docker`
 * `docker-compose` 
 
+### Deployment Architecture
+![Deployment](https://raw.githubusercontent.com/spaceone-dev/spaceone-dockercompose/master/docs/docker-compose.png)
+
 ### Commands
 
 ```bash
@@ -25,8 +28,9 @@ cd spaceone-dockercompose
 ```
 
 Base on your deploy environment,
-You should update environment variables at build-data/environment/debug.mk
-Especially **SUPERVISOR_HOSTNAME** is important. This value is configured at supervisor micro-service.
+You should update environment variables at build-data/environment/linux.mk.
+For Mac User, edit mac.mk.
+Especially **HOST_ADDR** and **HOST_FQDN** are important. This value is configured at supervisor micro-service.
 
 ```
 ############################
@@ -39,9 +43,11 @@ VERSION=latest
 # Update Your environment
 # - supervisor (private ip address of this machine)
 # MacOS
-#SUPERVISOR_HOSTNAME=$(shell ipconfig getifaddr en0)
+#HOST_ADDR=$(shell ipconfig getifaddr en0)
 # Linux
-SUPERVISOR_HOSTNAME=$(shell hostname -i)
+HOST_ADDR=$(shell curl http://169.254.169.254/latest/meta-data/public-ipv4)
+HOST_FQDN=$(shell curl http://169.254.169.254/latest/meta-data/public-hostname)
+
 
 ############################
 # Service List
@@ -62,31 +68,25 @@ RUN_BACKEND = y
 RUN_FRONTEND = y
 RUN_SUPERVISOR = y
 RUN_TESTER = y
+RUN_NGINX = y
 ```
 
 In the repository root directory, install SpaceONE.
 
 ```bash
-$ make all
+# For AWS EC2 linux user
+$ make all ENV=linux
+
+# For Mac User,
+$ make all ENV=mac
 ```
 
 
-### 1. Update DNS for web browser access.
+### 1. Open web browser access.
 
-edit your hosts file for access.
-
-In Linux PC or MacOS, edit /etc/hosts
-In Windows PC, edit c:\windows\system32\drivers\etc\hosts
-
-```
-#
-# Elastic IP address, if you installed at EC2 instance.
-# <EC2 EIP> root
-# If you use MacOS, use 127.0.0.1
-127.0.0.1 root
-```
-
-You can see the console page via http://root:8280
+You can see the console page via 
+- https://<domain name>
+- http://<domain name>:8280
 
 ## Development guides
 
