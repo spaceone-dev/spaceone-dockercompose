@@ -85,8 +85,11 @@ $ make all ENV=mac
 ### 1. Open web browser access.
 
 You can see the console page via 
-- https://<domain name>
-- http://<domain name>:8280
+
+- https://domain name
+- http://domain name:8280
+
+NGINX includes self-signed certificate. So you have to accept self-signed certificate warning.
 
 ## Development guides
 
