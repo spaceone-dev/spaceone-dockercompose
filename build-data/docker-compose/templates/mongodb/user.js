@@ -62,6 +62,15 @@ db.createUser(
     }
 );
 db.auth('admin','password')
+db = db.getSiblingDB('power_scheduler')
+db.createUser(
+    {
+        user: "power_scheduler",
+        pwd: "power_scheduler_password",
+        roles: [ {role: "readWrite", db: "power_scheduler" } ]
+    }
+);
+db.auth('admin','password')
 db = db.getSiblingDB('marketplace')
 db.createUser(
     {

@@ -9,7 +9,7 @@
     #command: ["sleep", "360000"] 
     volumes:
       - ./conf/inventory-worker.yml:/opt/inventory.yml
-        #- ../../../:/opt/
+      - ../../../:/opt/
     depends_on:
       - redis
 

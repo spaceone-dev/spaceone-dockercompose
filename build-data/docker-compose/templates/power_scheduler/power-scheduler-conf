@@ -1,0 +1,10 @@
+GLOBAL:
+  MAX_WORKERS: 1000
+  DATABASES:
+    default:
+      db: 'dev-power-scheduler'
+      host: localhost
+      port: 27017
+      maxPoolSize: 200
+      username: mongouser
+      password: mongopassword

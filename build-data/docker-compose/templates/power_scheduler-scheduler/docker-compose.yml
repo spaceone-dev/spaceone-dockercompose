@@ -1,0 +1,15 @@
+
+  power_scheduler-scheduler:
+    #image: "IMAGE_REGISTRY/inventory:VERSION"
+    image: "python:latest"
+    links:
+        - mongodb:mongodb
+        - redis:redis
+    #command: ["grpc", "spaceone.power_scheduler", "-c", "/opt/power_scheduler.yml"]
+    command: ["sleep", "36000"]
+    volumes:
+      - ./conf/power_scheduler-scheduler.yml:/opt/power_scheduler-scheduler.yml
+      - ../../../:/opt/
+    depends_on:
+      - redis
+

@@ -46,7 +46,6 @@ PLUGIN_PARAMS = {
                 "spaceone:plugin_name": "aws-ec2"
                 }
         },
-
     'aws-cloud-services': {
             'name':'aws-cloud-services',
             'service_type':'inventory.collector',
@@ -149,7 +148,24 @@ PLUGIN_PARAMS = {
                 "description": "Google OAuth2 Authentication",
                 "spaceone:plugin_name": "google-oauth2"
                 }
-            }
+            },
+    'server-mockup': {
+            'name':'server-mockup',
+            'service_type':'inventory.Collector',
+            'image':'pyengine/server-mockup',
+            'labels': ['Server'],
+            'provider': 'spaceone',
+            'capability': {
+                'supported_schema': ["spaceone_api_key"]
+            },
+            'template': {'options': {'schema': SCHEMA}},
+            "tags": {
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-ec2.svg",
+                "description": "SpaceONE Server Mockup Test Collector",
+                "spaceone:plugin_name": "server-mockup"
+                }
+        },
+
 }
 
 
@@ -396,12 +412,35 @@ azure_client_secret = {
     }
 }
 
+spaceone_api_key = {
+    'name': 'spaceone_api_key',
+    'service_type': 'secret.credentials',
+    'schema': {
+        'required': [
+            'spaceone_api_key'
+        ],
+        'properties': {
+            'spaceone_api_key': {
+                'title': 'SpaceONE API Key',
+                'type': 'string',
+                'minLength': 4
+            }
+        },
+        'type': 'object'
+    },
+    'labels': ['SpaceONE'],
+    'tags': {
+        'description': 'SpaceONE API Key'
+    }
+}
+
 SCHEMA_PARAMS = {
     'aws_acess_key': aws_access_key,
     'aws_assume_role': aws_assume_role,
     'google_api_key': google_api_key,
     'google_oauth_client_id': google_oauth_client_id,
-    'azure_client_secret': azure_client_secret
+    'azure_client_secret': azure_client_secret,
+    'spaceone_api_key': spaceone_api_key
 }
 
 
@@ -433,7 +472,24 @@ class TestCreateRootDomain(TestCase):
 
         return plugin
 
+    def _create_provider(self):
+        param = {
+            'provider': 'spaceone',
+            'name': 'SpaceONE',
+            'template': {
+                'service_account': {
+                    'schema': SCHEMA
+                }
+            },
+            'capability': {
+                'supported_schema': ['spaceone_api_key']
+            },
+            'domain_id': self.domain.domain_id
+        }
+        self.identity.Provider.create(param, metadata=self.meta)
+
     def test_create(self):
+        self._create_provider()
         for key, plugin_param in PLUGIN_PARAMS.items():
             self._create_plugin(plugin_param)
 
