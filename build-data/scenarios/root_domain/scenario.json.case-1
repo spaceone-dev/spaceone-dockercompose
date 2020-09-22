@@ -1,0 +1,34 @@
+{
+    "options": {
+        "update_mode": false,
+        "terminate": false,
+        "update_supervisor_token": true
+    },
+    "consul": {
+        "host": "consul",
+        "env": "debug"
+    },
+    "domain": {
+        "domain": {"name": "root"},
+        "domainOwner": {"owner_id": "admin", "password": "admin"},
+        "users": [
+            {"user_id": "supervisor", "password": "supervisor-password"},
+            {"user_id": "stark", "password": "stark-password"}
+        ],
+        "api_key_users": [
+            {"user_id": "supervisor"}
+        ],
+        "local_repository": {
+                "name":"root",
+                "repository_type": "local"
+        },
+	"project_group": {
+		"Iron Man Series": ["Iron Man 1", "Iron Man 2", "Iron Man 3"]
+	},
+	"projects": [
+		{"name": "Iron Man 1"},
+		{"name": "Iron Man 2"},
+		{"name": "Iron Man 3"}
+		]
+    }
+}

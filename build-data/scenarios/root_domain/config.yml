@@ -12,3 +12,5 @@ GLOBAL:
       v1: plugin:50051    
     secret:
       v1: secret:50051
+    statistics:
+      v1: statistics:50051
