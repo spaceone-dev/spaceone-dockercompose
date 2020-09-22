@@ -20,6 +20,7 @@ endif
 ifeq (${RUN_CONSUL},y)
 	cat $(BR)/$(ENV)/templates/consul/docker-compose.yml >> $(BR)/$(ENV)/docker-compose.yml
 	mkdir -p $(BR)/$(ENV)/consul
+	chmod -R 777 $(BR)/$(ENV)/consul
 endif
 
 ifeq (${RUN_NGINX},y)
