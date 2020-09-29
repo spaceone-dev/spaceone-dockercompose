@@ -1,9 +1,12 @@
 ############################
 # Docker Image Registry
 #############################
-#IMAGE_REGISTRY=spaceone
-IMAGE_REGISTRY=pyengine
-VERSION=latest
+#IMAGE_REGISTRY=pyengine
+#VERSION=latest
+
+IMAGE_REGISTRY=spaceone
+VERSION=1.3.2
+
 
 ############################
 # Update Your environment
@@ -25,7 +28,8 @@ HOST_FQDN=$(shell curl http://169.254.169.254/latest/meta-data/public-hostname)
 ############################
 # Service List
 ############################
-BACKEND = identity secret repository inventory inventory-scheduler inventory-worker plugin statistics monitoring power_scheduler
+BACKEND = identity secret repository inventory inventory-scheduler inventory-worker plugin statistics monitoring \
+	  power_scheduler power_scheduler-scheduler power_scheduler-worker
 FRONTEND = console console-api
 SUPERVISOR = supervisor
 TESTER = tester
