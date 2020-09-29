@@ -165,6 +165,22 @@ PLUGIN_PARAMS = {
                 "spaceone:plugin_name": "server-mockup"
                 }
         },
+    'power-scheduler-controller': {
+            'name':'power-scheduler',
+            'service_type':'power_scheduler.Controller',
+            'image':'pyengine/power-scheduler-controller',
+            'labels': ['Server'],
+            'provider': 'aws',
+            'capability': {
+                'supported_schema': ['aws_access_key', 'aws_assume_role']
+            },
+            'template': {'options': {'schema': SCHEMA}},
+            "tags": {
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-ec2.svg",
+                "description": "AWS Power Scheduler Controller",
+                "spaceone:plugin_name": "power-scheduler-controller"
+                }
+        }
 
 }
 
@@ -180,7 +196,7 @@ aws_access_key = {
         ],
         'properties': {
             'aws_access_key_id': {
-                'title': 'AWS Access Key',
+                'title': 'AWS Access Key ID',
                 'type': 'string',
                 'minLength': 4
             },
@@ -195,7 +211,7 @@ aws_access_key = {
             'aws_secret_access_key': {
                 'type': 'string',
                 'minLength': 4,
-                'title': 'AWS Secret Key'
+                'title': 'AWS Secret Access Key'
             }
         },
         'type': 'object'
@@ -221,7 +237,7 @@ aws_assume_role = {
                 'minLength': 4
             },
             'aws_access_key_id': {
-                'title': 'AWS Access Key',
+                'title': 'AWS Access Key ID',
                 'type': 'string',
                 'minLength': 4
             },
@@ -236,7 +252,7 @@ aws_assume_role = {
             'aws_secret_access_key': {
                 'type': 'string',
                 'minLength': 4,
-                'title': 'AWS Secret Key'
+                'title': 'AWS Secret Access Key'
             }
         },
         'type': 'object'
