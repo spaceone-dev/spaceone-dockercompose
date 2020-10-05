@@ -180,7 +180,24 @@ PLUGIN_PARAMS = {
                 "description": "AWS Power Scheduler Controller",
                 "spaceone:plugin_name": "power-scheduler-controller"
                 }
+        },
+    'aws-power-state': {
+            'name':'aws-power-state',
+            'service_type':'inventory.Collector',
+            'image':'pyengine/aws-power-state',
+            'labels': ['EC2', 'AutoScaling Group', 'RDS'],
+            'provider': 'aws',
+            'capability': {
+                'supported_schema': ["aws_access_key", "aws_assume_role"]
+            },
+            'template': {'options': {'schema': SCHEMA}},
+            "tags": {
+                "icon": "https://assets-console-spaceone-stg.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws-cloudservice.svg",
+                "description": "AWS Cloud Services collector",
+                "spaceone:plugin_name": "aws-power-state"
+                }
         }
+
 
 }
 
