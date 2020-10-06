@@ -2,7 +2,7 @@
 # Docker Image Registry
 #############################
 IMAGE_REGISTRY=spaceone
-VERSION=latest
+VERSION=1.3.2
 
 ############################
 # Update Your environment
@@ -14,6 +14,8 @@ HOST_FQDN=localhost
 ############################
 # Service List
 ############################
+#BACKEND = identity secret repository inventory inventory-scheduler inventory-worker plugin statistics monitoring \
+#	  power_scheduler power_scheduler-scheduler power_scheduler-worker
 BACKEND = identity secret repository inventory inventory-scheduler inventory-worker plugin statistics monitoring
 FRONTEND = console console-api
 SUPERVISOR = supervisor
